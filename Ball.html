@@ -20,7 +20,7 @@
 
         // ToDo: All diese Variablen (+ die Funktionen hierunter) die mit dem Ball zu tun haben, "schreien" danach, in ein Objekt verpackt zu werden...
         let ballDia = 15; 
-        let ballColor = "red";
+        let ballColor = "white";
         let ballX = 1; // ToDo: Die Startposition sollte zufällig sein
         let ballY = 1; // ToDo: Die Startposition sollte zufällig sein
         let ballSpeed = 5; 
@@ -34,9 +34,10 @@
             // ToDo: Hier testen, ob der Ball das Feld verlässt und dann dafür sorgen, dass er korrekt vom Rand "apprallt", ohne den Rand zu überschreiten
         }
 
-        function clearCanvas(background="white"){
-            context.fillStyle = background;
-            context.clearRect(0, 0, canvas.width, canvas.height);
+        function clearCanvas(bg="white"){
+            context.fillStyle = bg;
+            console.log(context.fillStyle);
+            context.fillRect(0, 0, canvas.width, canvas.height);
         }
 
         function drawBall(){
