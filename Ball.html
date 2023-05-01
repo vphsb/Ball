@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titel</title>
+    <style>
+        canvas {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ein Ball auf einem Canvas...</h1>
+    <canvas id = "myCanvas" width="400px" height="400px"></canvas>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const context = canvas.getContext('2d');
+
+        // ToDo: All diese Variablen (+ die Funktionen hierunter) die mit dem Ball zu tun haben, "schreien" danach, in ein Objekt verpackt zu werden...
+        let ballDia = 15; 
+        let ballColor = "red";
+        let ballX = 1; // ToDo: Die Startposition sollte zufällig sein
+        let ballY = 1; // ToDo: Die Startposition sollte zufällig sein
+        let ballSpeed = 5; 
+        let ballVx = 1; // ToDo: Der Ball sollte sich mit der Geschwindigkeit ballSpeed in eine zufällige Richtung bewegen, d.h. die Geschwindigkeit in x-Richtung (ballVx)
+        let ballVy = 1; // und y-Richtung (ballVy) sollten Sie aus ballSpeed und einem zufälligen Richtungswinkel berechnen (--> VL was sie unbedingt über TRIGONOMETRIE WISSEN SOLLTEN)
+
+        function moveBall(){
+            ballX = ballX + ballVx; 
+            ballY = ballY + ballVy; 
+
+            // ToDo: Hier testen, ob der Ball das Feld verlässt und dann dafür sorgen, dass er korrekt vom Rand "apprallt", ohne den Rand zu überschreiten
+        }
+
+        function clearCanvas(background="white"){
+            context.fillStyle = background;
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function drawBall(){
+            // ToDo: dies zeichnet einen schwarzen Würfel, damit Sie erstmal was sehen, es sollte aber ein Kreis in der Farbe des Balles sein... und später vielleicht ein Bild von eim Ball...
+            context.fillStyle = "black";
+            context.fillRect(ballX, ballY, ballDia, ballDia);
+        }
+
+        function gameLoop() {
+            moveBall(); 
+            clearCanvas(); 
+            drawBall();
+            requestAnimationFrame(gameLoop);
+        }
+
+        gameLoop(); // Start 
+
+    </script>
+</body>
+</html>
